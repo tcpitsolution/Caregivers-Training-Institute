@@ -143,7 +143,6 @@ export default function Certificates() {
         </div>
       </section>
 
-      <a className="floating-wa" href={WA} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /></a>
     </>
   );
 }

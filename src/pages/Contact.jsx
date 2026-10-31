@@ -10,6 +10,7 @@ const campuses = [
     address: "Naicker Street, Nakurakura Sub-Division, Nadi, Fiji",
     phones: ["+679 670 1089", "+679 963 1888", "+679 877 2184"],
     viber: "+679 877 2184",
+    email: "info@pacificskillsfiji.com",
     wa: WA_NADI,
     mapSrc: "https://www.google.com/maps?q=Naicker+Street+Nakurakura+Nadi+Fiji&output=embed",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Naicker+Street+Nakurakura+Nadi+Fiji",
@@ -19,6 +20,7 @@ const campuses = [
     address: "Level 3, Gurbachan Singh Building, Raojibhai Patel Street, Suva, Fiji",
     phones: ["+679 879 1035", "+679 998 0764", "+679 963 1888"],
     viber: "+679 253 0644",
+    email: "info@pacificskillsfiji.com",
     wa: WA_SUVA,
     mapSrc: "https://www.google.com/maps?q=Raojibhai+Patel+Street+Suva+Fiji&output=embed",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Raojibhai+Patel+Street+Suva+Fiji",
@@ -90,6 +92,7 @@ export default function Contact() {
                   <span>{c.phones.map((p, i) => <a key={p} href={`tel:${p.replace(/\s/g, "")}`}>{p}{i < c.phones.length - 1 ? " / " : ""}</a>)}</span>
                 </div>
                 <div className="campus-detail"><MessageCircle size={16} /><span>Viber: {c.viber}</span></div>
+                <div className="campus-detail"><Mail size={16} /><a href={`mailto:${c.email}`}>{c.email}</a></div>
                 <div className="campus-detail"><Clock3 size={16} /><span>Mon–Fri, 8:00 AM – 5:00 PM</span></div>
                 <div className="campus-actions">
                   <a href={c.wa} target="_blank" rel="noreferrer" className="btn primary"><MessageCircle size={16} /> WhatsApp</a>
@@ -111,6 +114,7 @@ export default function Contact() {
               <div><Phone /><span><b>Suva Campus</b><small>+679 879 1035 / +679 998 0764 / +679 963 1888</small></span></div>
               <div><MessageCircle /><span><b>Viber — Nadi</b><small>+679 877 2184</small></span></div>
               <div><MessageCircle /><span><b>Viber — Suva</b><small>+679 253 0644</small></span></div>
+              <div><Mail /><span><b>Email</b><small>info@pacificskillsfiji.com</small></span></div>
               <div><Clock3 /><span><b>Opening Hours</b><small>Monday – Friday, 8:00 AM – 5:00 PM</small></span></div>
             </div>
             <a href={WA} target="_blank" rel="noreferrer" className="btn primary">WhatsApp Us <MessageCircle size={17} /></a>
@@ -151,7 +155,6 @@ export default function Contact() {
         </div>
       </Section>
 
-      <a className="floating-wa" href={WA} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /></a>
     </>
   );
 }

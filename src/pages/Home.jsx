@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, Award, BookOpen, Bot, Check, ChevronDown,
+  ArrowRight, Award, BookOpen, Check, ChevronDown,
   Clock3, HeartHandshake, GraduationCap, HeartPulse, MapPin,
-  MessageCircle, Phone, Send, ShieldCheck, Sparkles, Star,
-  Stethoscope, Users, X, Zap
+  MessageCircle, ShieldCheck, Sparkles,
+  Stethoscope, Users, Zap
 } from "lucide-react";
 import logo from "../image.png";
 import { Section, fade } from "../components/Section";
@@ -49,19 +49,6 @@ const testimonials = [
 
 export default function Home() {
   const [faq, setFaq] = useState(null);
-  const [chat, setChat] = useState(false);
-  const [messages, setMessages] = useState([{ from: "bot", text: "Hello! I'm the institute assistant. How can I help you today?" }]);
-
-  const reply = (q) => {
-    const lower = q.toLowerCase();
-    let answer = "For current admissions, program availability and requirements, please contact us at +679 998 0764 (Suva) or +679 670 1089 (Nadi).";
-    if (lower.includes("course") || lower.includes("program")) answer = "We offer Aged Care, Counselling, Carpentry, Tiling, Welding, Fashion Design, Painting, and Teaching (TVET). Visit our Courses page for full details.";
-    if (lower.includes("location") || lower.includes("address")) answer = "Nadi: Naicker Street, Nakurakura Sub-Division. Suva: Level 3, Gurbachan Singh Building, Raojibhai Patel Street.";
-    if (lower.includes("contact") || lower.includes("apply") || lower.includes("enrol")) answer = "Call +679 998 0764 (Suva) or +679 670 1089 (Nadi), or use the WhatsApp button to enquire directly.";
-    if (lower.includes("hour") || lower.includes("open")) answer = "We are open Monday to Friday, 8:00 AM to 5:00 PM.";
-    if (lower.includes("certificate") || lower.includes("accredit")) answer = "All qualifications are accredited under the Fiji Qualifications Framework (FQF) and overseen by the Fiji Higher Education Commission (HEC).";
-    setMessages(m => [...m, { from: "user", text: q }, { from: "bot", text: answer }]);
-  };
 
   return (
     <>
@@ -242,24 +229,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FLOATING CHAT */}
-      <a className="floating-wa" href={WA} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /></a>
-      <button className="chat-launch" onClick={() => setChat(true)}><Bot size={18} /> Ask Our Assistant</button>
-      <AnimatePresence>
-        {chat && (
-          <motion.div className="chat-box" initial={{ opacity: 0, y: 20, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20 }}>
-            <div className="chat-head"><span><Bot size={18} /> Institute Assistant</span><button onClick={() => setChat(false)}><X size={18} /></button></div>
-            <div className="chat-messages">{messages.map((m, i) => <div key={i} className={`msg ${m.from}`}>{m.text}</div>)}</div>
-            <div className="quick">
-              {["What courses do you offer?", "Where are you located?", "How can I apply?", "What are your hours?"].map(q => <button key={q} onClick={() => reply(q)}>{q}</button>)}
-            </div>
-            <div className="chat-input">
-              <input placeholder="Ask a question..." onKeyDown={e => { if (e.key === "Enter" && e.currentTarget.value.trim()) { reply(e.currentTarget.value); e.currentTarget.value = ""; } }} />
-              <button onClick={() => { const i = document.querySelector(".chat-input input"); if (i.value.trim()) { reply(i.value); i.value = ""; } }}><Send size={16} /></button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
     </>
   );
 }

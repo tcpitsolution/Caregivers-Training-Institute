@@ -146,7 +146,7 @@ export default function Admissions() {
             <div className="contact-items">
               <div><MessageCircle /><span><b>WhatsApp — Suva</b><small>+679 998 0764 / +679 879 1035</small></span></div>
               <div><MessageCircle /><span><b>WhatsApp — Nadi</b><small>+679 670 1089 / +679 877 2184</small></span></div>
-              <div><Mail /><span><b>Email Enquiry</b><small>Submit via the form or visit us in person</small></span></div>
+              <div><Mail /><span><b>Email Enquiry</b><small><a href="mailto:info@pacificskillsfiji.com">info@pacificskillsfiji.com</a></small></span></div>
             </div>
             <a href={WA} target="_blank" rel="noreferrer" className="btn primary">WhatsApp Us <MessageCircle size={17} /></a>
           </div>
@@ -186,7 +186,6 @@ export default function Admissions() {
         </div>
       </Section>
 
-      <a className="floating-wa" href={WA} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /></a>
     </>
   );
 }
