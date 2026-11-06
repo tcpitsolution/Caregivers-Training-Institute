@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Phone, MapPin, Mail } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Mail, Clock } from "lucide-react";
 import logo from "../image.png";
 import { WA_NADI, WA_SUVA } from "./Nav";
 
 const links = [
   { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
   { label: "Courses", to: "/courses" },
   { label: "Admissions", to: "/admissions" },
   { label: "Certificates", to: "/certificates" },
@@ -20,7 +21,9 @@ export default function Footer() {
           <Link className="brand footer-brand" to="/">
             <img src={logo} alt="Caregivers Training Institute Logo" className="footer-logo" />
           </Link>
-          <p>T/A Pacific Health &amp; Skills Institute — Professional training accredited under the Fiji Qualifications Framework (FQF).</p>
+          <p>T/A Pacific Health &amp; Skills Institute — Professional training accredited under the Fiji Qualifications Framework (FQF) and recognised by the Fiji Higher Education Commission (HEC).</p>
+          <div className="footer-hours"><Clock size={12} /><span>Mon–Fri &nbsp;8:00 AM – 5:00 PM</span></div>
+          <a href="mailto:info@pacificskillsfiji.com" className="footer-email"><Mail size={12} />info@pacificskillsfiji.com</a>
         </div>
         <div>
           <h4>Quick Links</h4>
@@ -28,14 +31,14 @@ export default function Footer() {
         </div>
         <div>
           <h4>Nadi Campus</h4>
-          <span><MapPin size={12} style={{display:"inline",marginRight:5}}/>Naicker Street, Nakurakura Sub-Division, Nadi</span>
+          <span><MapPin size={12} style={{display:"inline",marginRight:5}}/>Naicker Street, Nakurakura Sub-Division, Nadi, Fiji</span>
           <a href="tel:+6796701089"><Phone size={12} style={{display:"inline",marginRight:5}}/>+679 670 1089</a>
           <a href={WA_NADI} target="_blank" rel="noreferrer"><MessageCircle size={12} style={{display:"inline",marginRight:5}}/>WhatsApp Nadi</a>
         </div>
         <div>
           <h4>Suva Campus</h4>
-          <span><MapPin size={12} style={{display:"inline",marginRight:5}}/>Level 3, Gurbachan Singh Building, Raojibhai Patel St, Suva</span>
-          <a href="tel:+6799980764"><Phone size={12} style={{display:"inline",marginRight:5}}/>+679 998 0764</a>
+          <span><MapPin size={12} style={{display:"inline",marginRight:5}}/>Level 3, Gurbachan Singh Building, Raojibhai Patel St, Suva, Fiji</span>
+          <a href="tel:+6792758378"><Phone size={12} style={{display:"inline",marginRight:5}}/>+679 275 8378</a>
           <a href="mailto:info@pacificskillsfiji.com"><Mail size={12} style={{display:"inline",marginRight:5}}/>info@pacificskillsfiji.com</a>
           <a href={WA_SUVA} target="_blank" rel="noreferrer"><MessageCircle size={12} style={{display:"inline",marginRight:5}}/>WhatsApp Suva</a>
         </div>

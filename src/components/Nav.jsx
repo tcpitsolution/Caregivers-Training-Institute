@@ -3,12 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, Menu, X } from "lucide-react";
 import logo from "../image.png";
 
-export const WA_NADI = "https://wa.me/6796701089?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses.";
-export const WA_SUVA = "https://wa.me/6799980764?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses.";
-export const WA = WA_SUVA;
+export const WA_NADI    = "https://wa.me/6796701089?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses.";
+export const WA_SUVA    = "https://wa.me/6799980764?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses.";
+export const WA         = WA_SUVA;
+export const VIBER_NADI = "viber://chat?number=6796877218";
+export const VIBER_SUVA = "viber://chat?number=6792530644";
 
 const links = [
   { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
   { label: "Courses", to: "/courses" },
   { label: "Admissions", to: "/admissions" },
   { label: "Certificates", to: "/certificates" },

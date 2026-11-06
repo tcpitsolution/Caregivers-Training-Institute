@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Courses from "./pages/Courses";
 import Admissions from "./pages/Admissions";
 import Certificates from "./pages/Certificates";
@@ -98,8 +99,7 @@ function getBotReply(text) {
   const q = text.toLowerCase();
 
   if (q.includes("course") || q.includes("program") || q.includes("qualification") || q.includes("offer") || q.includes("study"))
-    return `We offer 12 nationally accredited qualifications:\n\n${COURSES.map((c, i) => `${i + 1}. ${c}`).join("\n")}\n\nAll are accredited under the Fiji Qualifications Framework (FQF). Would you like details on any specific course?`;
-
+    return "We offer nationally accredited qualifications in:\n\n• Aged Care & Community Care (Level 2 & 3)\n• Counselling (Level 4 & 5)\n• Teaching of TVET (Level 4)\n• Carpentry, Tiling, Fabrication & Welding, Painting\n• Fashion Design\n\nAll accredited under the Fiji Qualifications Framework (FQF). Contact us for the full list and current intake dates!";
   if (q.includes("aged care") || q.includes("community care"))
     return "Aged Care & Community Care is available at Level 2 (4 months) and Level 3 (8 months). It covers personal care, communication, safety, and working with diverse clients. FQF accredited.";
 
@@ -125,7 +125,7 @@ function getBotReply(text) {
     return "National Certificate in Painting — Level 3. Covers surface preparation, paint application, colour theory, and finishing for residential and commercial properties. Contact us for current duration.";
 
   if (q.includes("fee") || q.includes("cost") || q.includes("price") || q.includes("tuition") || q.includes("pay"))
-    return "Fees vary depending on the course selected. For accurate fee information, I'd recommend contacting our admissions team directly — they'll be happy to help! 😊\n\nNadi: +679 670 1089\nSuva: +679 998 0764\n\nOr share your name, phone & email and I'll pass your enquiry to the admin right away.";
+    return "Fees vary depending on the course selected. For accurate fee information, I'd recommend contacting our admissions team directly — they'll be happy to help! 😊\n\nNadi: +679 670 1089\nSuva: +679 275 8378\n\nOr share your name, phone & email and I'll pass your enquiry to the admin right away.";
 
   if (q.includes("accredit") || q.includes("certificate") || q.includes("fqf") || q.includes("hec"))
     return "All our qualifications are accredited under the Fiji Qualifications Framework (FQF) and overseen by the Fiji Higher Education Commission (HEC). Certificates are officially signed, stamped, and nationally recognised.";
@@ -137,13 +137,13 @@ function getBotReply(text) {
     return "Required documents for enrolment:\n1. Filled application form\n2. LLN&D Pre-Entry Assessment\n3. 2 passport-size photos\n4. Certified colour copy of birth certificate\n5. Certified FNPF Joint Card or TIN\n6. Current CV\n\nNote: Each course may have additional specific requirements. Contact us to confirm.";
 
   if (q.includes("location") || q.includes("address") || q.includes("where") || q.includes("campus"))
-    return "We have two campuses:\n\n📍 Nadi Campus\nNaicker Street, Nakurakura Sub-Division, Nadi, Fiji\nPhone: +679 670 1089\n\n📍 Suva Campus\nLevel 3, Gurbachan Singh Building, Raojibhai Patel Street, Suva, Fiji\nPhone: +679 998 0764";
+    return "We have two campuses:\n\n📍 Nadi Campus\nNaicker Street, Nakurakura Sub-Division, Nadi, Fiji\nPhone: +679 670 1089\n\n📍 Suva Campus\nLevel 3, Gurbachan Singh Building, Raojibhai Patel Street, Suva, Fiji\nPhone: +679 275 8378";
 
   if (q.includes("hour") || q.includes("open") || q.includes("time") || q.includes("when"))
     return "We are open Monday to Friday, 8:00 AM – 5:00 PM. Closed on weekends and public holidays.";
 
   if (q.includes("contact") || q.includes("phone") || q.includes("call") || q.includes("number"))
-    return "📞 Nadi Campus: +679 670 1089 / +679 963 1888\n📞 Suva Campus: +679 998 0764 / +679 879 1035\n\nViber Nadi: +679 877 2184\nViber Suva: +679 253 0644\n\nOpen Mon–Fri, 8:00 AM – 5:00 PM.";
+    return "📞 Nadi Campus: +679 670 1089 / +679 963 1888\n📞 Suva Campus: +679 275 8378\n\nViber Nadi: +679 877 2184\nViber Suva: +679 253 0644\n\nOpen Mon–Fri, 8:00 AM – 5:00 PM.";
 
   if (q.includes("duration") || q.includes("long") || q.includes("month"))
     return "Course durations vary:\n• 4 months — Aged Care L2, Tiling L1 & L2\n• 6 months — Counselling L4 & L5, Tiling L3, Carpentry L3\n• 7 months — Teaching of TVET L4\n• 8 months — Aged Care L3\n• Contact us — Welding, Fashion Design, Painting";
@@ -152,7 +152,7 @@ function getBotReply(text) {
     return "Nadi Campus:\n📍 Naicker Street, Nakurakura Sub-Division, Nadi, Fiji\n📞 +679 670 1089 / +679 963 1888\nViber: +679 877 2184\nOpen Mon–Fri, 8:00 AM – 5:00 PM.";
 
   if (q.includes("suva"))
-    return "Suva Campus:\n📍 Level 3, Gurbachan Singh Building, Raojibhai Patel Street, Suva, Fiji\n📞 +679 998 0764 / +679 879 1035\nViber: +679 253 0644\nOpen Mon–Fri, 8:00 AM – 5:00 PM.";
+    return "Suva Campus:\n📍 Level 3, Gurbachan Singh Building, Raojibhai Patel Street, Suva, Fiji\n📞 +679 275 8378\nViber: +679 253 0644\nOpen Mon–Fri, 8:00 AM – 5:00 PM.";
 
   if (q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("helo"))
     return "Hello! 😊 How can I help you today? You can ask me about our courses, admissions, campus locations, fees, certificates, or anything else about Pacific Health & Skills Institute.";
@@ -205,9 +205,9 @@ function GlobalChatbot() {
         subject:    "New Inquiry — PHSI Website Chatbot",
         message:    `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}`,
       }, EJS_PUBLIC);
-      addMsg("bot", `✅ Done! Your enquiry has been sent to our admissions team. We'll get back to you soon, ${data.name}! 😊\n\nIn the meantime, feel free to call us:\nNadi: +679 670 1089\nSuva: +679 998 0764`);
+      addMsg("bot", `✅ Done! Your enquiry has been sent to our admissions team. We'll get back to you soon, ${data.name}! 😊\n\nIn the meantime, feel free to call us:\nNadi: +679 670 1089\nSuva: +679 275 8378`);
     } catch {
-      addMsg("bot", `Thanks ${data.name}! We've noted your details. Our team will contact you at ${data.phone} or ${data.email} soon.\n\nYou can also call us directly:\nNadi: +679 670 1089\nSuva: +679 998 0764`);
+      addMsg("bot", `Thanks ${data.name}! We've noted your details. Our team will contact you at ${data.phone} or ${data.email} soon.\n\nYou can also call us directly:\nNadi: +679 670 1089\nSuva: +679 275 8378`);
     }
     setSending(false);
     setCollecting(false);
@@ -352,6 +352,7 @@ export default function App() {
             <main style={{ paddingTop: 78 }}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/admissions" element={<Admissions />} />
                 <Route path="/certificates" element={<Certificates />} />
